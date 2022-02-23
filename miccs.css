@@ -2,5 +2,16 @@
     display: flex;
     flex-wrap: wrap;
     width: 800px;
-    height: 600px;
+    height: 400px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.titulo{
+   text-align: center;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+.a{
+ margin-left: 10px;
 }
