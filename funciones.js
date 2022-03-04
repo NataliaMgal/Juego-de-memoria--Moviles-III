@@ -3,51 +3,51 @@ document.addEventListener("DOMContentLoaded", function(){
     //Imagenes 
     let imagenes = [
         { 
-            img:"imagenes/elefante.jpg",
+            img:"imagenes/elefante.png",
             name:"elefante",
         },
         {
-            img:"imagenes/gato.jpg",
+            img:"imagenes/gato.png",
             name:"gato",
         },
         {
-            img:"imagenes/jirafa.jpg",
-            name:"jirafa",
+            img:"imagenes/oso.png",
+            name:"oso",
         },
         {
-            img:"imagenes/leon.jpg",
-            name:"leon",
+            img:"imagenes/oveja.png",
+            name:"oveja",
         },
         {
-            img:"imagenes/loro.jpg",
-            name:"loro",
+            img:"imagenes/tortuga.png",
+            name:"tortuga",
         },
         {
-            img:"imagenes/perro.jpg",
+            img:"imagenes/perro.png",
             name:"perro",
         },
         {
-            img:"imagenes/elefante.jpg",
+            img:"imagenes/elefante.png",
             name:"elefante",
         },
         {
-            img:"imagenes/gato.jpg",
+            img:"imagenes/gato.png",
             name:"gato",
         },
         {
-            img:"imagenes/jirafa.jpg",
-            name:"jirafa",
+            img:"imagenes/oso.png",
+            name:"oso",
         },
         {
-            img:"imagenes/leon.jpg",
-            name:"leon",
+            img:"imagenes/oveja.png",
+            name:"oveja",
         },
         {
-            img:"imagenes/loro.jpg",
-            name:"loro",
+            img:"imagenes/tortuga.png",
+            name:"tortuga",
         },
         {
-            img:"imagenes/perro.jpg",
+            img:"imagenes/perro.png",
             name:"perro",
        }
     ]
@@ -70,7 +70,7 @@ function crearTablero(){
         var img = document.createElement("img");
         img.setAttribute("data-id",i);
         img.setAttribute("src","imagenes/pregunta.png");
-        img.setAttribute("width","170px");
+        img.setAttribute("width","175px");
         img.setAttribute('class', 'a');
         tablero.appendChild(img);
         img.addEventListener("click",descubrirImagen);
@@ -93,25 +93,32 @@ function compararImagenes(){
     let todasLasImg = document.querySelectorAll("img");
     let opcion1 = imgElegidaId[0];
     let opcion2 = imgElegidaId[1];
-    if(imgElegida[0] === imgElegida[1] ){
-        alert("Acertaste");
-        todasLasImg[opcion1].setAttribute('src','./imagenes/acierto.jpg');
-        todasLasImg[opcion2].setAttribute('src','./imagenes/acierto.jpg');
+    if(opcion1 === opcion2){
+        todasLasImg[opcion1].setAttribute('src','./imagenes/pregunta.png');
+        todasLasImg[opcion2].setAttribute('src','./imagenes/pregunta.png');
+        alert("Debes darle click a otra imagen para comparar");
+    }else if(imgElegida[0] === imgElegida[1] && opcion1!= opcion2){
+        alert("Encontraste un par, genial")
+        todasLasImg[opcion1].setAttribute('src','./imagenes/acierto.png');
+        todasLasImg[opcion2].setAttribute('src','./imagenes/acierto.png');
+        todasLasImg[opcion1].removeEventListener('click', descubrirImagen);
+        todasLasImg[opcion2].removeEventListener('click', descubrirImagen);
         conteo.push(imgElegida);
     }else{
         alert("Sigue intentando");
         todasLasImg[opcion1].setAttribute('src','./imagenes/pregunta.png');
         todasLasImg[opcion2].setAttribute('src','./imagenes/pregunta.png');
-
     }
 //Volver a llenar el arreglo
     imgElegida = [];
     imgElegidaId = [];
     aciertos.textContent = conteo.length;
     if(conteo.length ===6){
-        aciertos.textContent = "Felicitaciones ganaste";
+       alert('Lo lograste, excelente');
+       location.reload();
     }
 }
+
 //ejecutar funcion crear tablero
 crearTablero();
 
